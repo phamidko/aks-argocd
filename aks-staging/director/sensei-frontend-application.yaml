@@ -10,7 +10,7 @@ spec:
   project: default
   sources:
     - repoURL: 'https://github.com/phamidko/aks-argocd.git'
-      path: aks-staging
+      path: 'aks-staging/director'
       targetRevision: 'master'
       ref: values
 
