@@ -86,7 +86,7 @@ senseiFrontend:
 
   nodeSelector:
     kubernetes.io/os: linux
-    agentpool: userpool
+    agentpool: nodepool1
 
   tolerations: []
 
