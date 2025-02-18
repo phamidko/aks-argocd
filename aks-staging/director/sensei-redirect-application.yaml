@@ -1,7 +1,7 @@
 apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
-  name: director-sensei-frontend
+  name: redirect-sensei
   namespace: argocd
 spec:
   destination:
@@ -14,13 +14,12 @@ spec:
       targetRevision: 'master'
       ref: values
     - repoURL: 'carestreamdental.azurecr.io/helm'
-      path: 'sensei-frontend'
-      #helm inspect chart oci://carestreamdental.azurecr.io/helm/sensei-frontend
-      targetRevision: 0.1.3
-      chart: sensei-frontend
+      path: 'sensei-redirect'
+      targetRevision: 0.1.0
+      chart: sensei-redirect
       helm:
           valueFiles:
-            - $values/aks-staging/director/sensei-frontend-values.yaml
+            - $values/aks-staging/director/sensei-redirect-values.yaml
   syncPolicy:
     automated:
       prune: true

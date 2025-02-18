@@ -1,0 +1,47 @@
+{
+  "name": "ksaqa",
+  "dataUrl": "https://api-qa.cloud.asnan.moh.gov.sa/v1.0/",
+  "disableLoginBanner": true,
+  "showDemoPages": true,
+  "allowInAppReindex": true,
+  "forceEnterpriseMode": true,
+  "authUrl": "https://adfs-qa.cloud.asnan.moh.gov.sa/",
+  "VNAUrl": "https://asnan-iis3.moh.gov.sa/",
+  "eRxClinicianUrl": "https://cli-cert.emdeon.com/",
+  "authentication": {
+    "logMsalEvents": false,
+    "customerAzureB2C": {
+      "tenantName": "csdentalstagb2c",
+      "clientId": "3707aef7-9642-477f-a4dc-ed8ae1898664",
+      "scopes": [
+        "https://csdentalstagb2c.onmicrosoft.com/SenseiCloud/Default"
+      ],
+      "policies": {
+        "login": "B2C_1A_OAuth_SUSI_Basic_v2"
+      }
+    },
+    "employeeAD": {
+      "tenantName": "csdental.com",
+      "clientId": "220de959-70c9-41ac-9702-f41dfba94016",
+      "roles": {
+        "support": "sensei-support",
+        "admin": "sensei-Admin"
+      }
+    },
+    "ADFS4": {
+      "clientId": "eb86ff40-20ba-437d-b2b3-00beb960334a",
+      "loginDomain": "https://sts.moh.gov.sa/",
+      "KnownAuthority": [
+        "https://sts.moh.gov.sa/"
+      ],
+      "userDomain": "moh.gov.sa",
+      "scopes": [
+        "openid",
+        "offline_access",
+        "profile"
+      ]
+    }
+  },
+  "buildVersion": "5.0.0.522",
+  "canary_source" :"director"
+}

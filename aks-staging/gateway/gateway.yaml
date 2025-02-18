@@ -1,0 +1,35 @@
+apiVersion: gateway.networking.k8s.io/v1beta1
+kind: Gateway
+metadata:
+  name: sensei-gateway
+  namespace: director
+  annotations:
+    alb.networking.azure.io/alb-namespace: alb-system
+    alb.networking.azure.io/alb-name: alb-test
+spec:
+  gatewayClassName: azure-alb-external
+  listeners:
+  - name: http-listener
+    port: 80
+    protocol: HTTP
+    allowedRoutes:
+      namespaces:
+        from: Selector
+        selector:
+          matchLabels:
+            sensei-gateway-access: "true"
+  # - name: https-listener
+  #   port: 443
+  #   protocol: HTTPS
+  #   allowedRoutes:
+  #     namespaces:
+  #       from: Selector
+  #       selector:
+  #         matchLabels:
+  #           sensei-gateway-access: "true"
+  #   tls:
+  #     mode: Terminate
+  #     certificateRefs:
+  #     - kind : Secret
+  #       group: ""
+  #       name: tls-secret
